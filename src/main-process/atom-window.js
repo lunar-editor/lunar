@@ -60,7 +60,11 @@ module.exports = class AtomWindow extends EventEmitter {
         // TodoElectronIssue: remote module is deprecated https://www.electronjs.org/docs/breaking-changes#default-changed-enableremotemodule-defaults-to-false
         enableRemoteModule: true,
         // node support in threads
-        nodeIntegrationInWorker: true
+        nodeIntegrationInWorker: true,
+
+        // The default of contextIsolation is changed to true so we'll have to set it to false.
+        // See https://github.com/electron/electron/issues/23506 for more information
+        contextIsolation: false
       },
       simpleFullscreen: this.getSimpleFullscreen()
     };

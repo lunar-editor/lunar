@@ -12,7 +12,7 @@
     "url": "https://github.com/atom/atom/issues"
   },
   "license": "MIT",
-  "electronVersion": "11.5.0",
+  "electronVersion": "12.2.3",
   "dependencies": {
     "@atom/fuzzy-native": "^1.2.1",
     "@atom/nsfw": "^1.0.28",
@@ -65,7 +65,7 @@
     "fuzzy-finder": "git+https://github.com/atom/fuzzy-finder.git#470978c",
     "git-diff": "file:packages/git-diff",
     "git-utils": "5.7.1",
-    "github": "git+https://github.com/lunar-editor/github.git#2053290",
+    "github": "git+https://github.com/lunar-editor/github.git#13ecfa0",
     "glob": "^7.1.1",
     "go-to-line": "file:packages/go-to-line",
     "grammar-selector": "file:packages/grammar-selector",
