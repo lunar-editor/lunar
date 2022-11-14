@@ -695,7 +695,7 @@ class Config {
   // You might want to change the themes programmatically:
   //
   // ```coffee
-  // atom.config.set('core.themes', ['atom-light-ui', 'atom-light-syntax'])
+  // atom.config.set('core.themes', ['one-light-ui', 'one-light-syntax'])
   // ```
   //
   // You can also set scoped settings. For example, you might want change the
