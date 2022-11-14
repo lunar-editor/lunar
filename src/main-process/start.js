@@ -37,7 +37,8 @@ module.exports = function start(resourcePath, devResourcePath, startTime) {
     }
   });
 
-  // TodoElectronIssue this should be set to true before Electron 12 - https://github.com/electron/electron/issues/18397
+  // TODO: This should be set to true before Electron 12
+  // Electron Issue - https://github.com/electron/electron/issues/18397
   app.allowRendererProcessReuse = false;
 
   app.commandLine.appendSwitch('enable-experimental-web-platform-features');
