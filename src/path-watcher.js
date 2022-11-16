@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 const { Emitter, Disposable, CompositeDisposable } = require('event-kit');
-const nsfw = require('@atom/nsfw');
+const nsfw = require('nsfw');
 const { NativeWatcherRegistry } = require('./native-watcher-registry');
 
 // Private: Associate native watcher action flags with descriptive String equivalents.
