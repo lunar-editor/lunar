@@ -3,7 +3,6 @@ const path = require('path');
 
 const { Emitter, Disposable, CompositeDisposable } = require('event-kit');
 const nsfw = require('@atom/nsfw');
-const watcher = require('@atom/watcher');
 const { NativeWatcherRegistry } = require('./native-watcher-registry');
 
 // Private: Associate native watcher action flags with descriptive String equivalents.
@@ -162,122 +161,6 @@ class NativeWatcher {
   // * `err` The native filesystem error.
   onError(err) {
     this.emitter.emit('did-error', err);
-  }
-}
-
-// Private: Emulate a "filesystem watcher" by subscribing to Atom events like buffers being saved. This will miss
-// any changes made to files outside of Atom, but it also has no overhead.
-class AtomNativeWatcher extends NativeWatcher {
-  async doStart() {
-    const getRealPath = givenPath => {
-      if (!givenPath) {
-        return Promise.resolve(null);
-      }
-
-      return new Promise(resolve => {
-        fs.realpath(givenPath, (err, resolvedPath) => {
-          err ? resolve(null) : resolve(resolvedPath);
-        });
-      });
-    };
-
-    this.subs.add(
-      atom.workspace.observeTextEditors(async editor => {
-        let realPath = await getRealPath(editor.getPath());
-        if (!realPath || !realPath.startsWith(this.normalizedPath)) {
-          return;
-        }
-
-        const announce = (action, oldPath) => {
-          const payload = { action, path: realPath };
-          if (oldPath) payload.oldPath = oldPath;
-          this.onEvents([payload]);
-        };
-
-        const buffer = editor.getBuffer();
-
-        this.subs.add(buffer.onDidConflict(() => announce('modified')));
-        this.subs.add(buffer.onDidReload(() => announce('modified')));
-        this.subs.add(
-          buffer.onDidSave(event => {
-            if (event.path === realPath) {
-              announce('modified');
-            } else {
-              const oldPath = realPath;
-              realPath = event.path;
-              announce('renamed', oldPath);
-            }
-          })
-        );
-
-        this.subs.add(buffer.onDidDelete(() => announce('deleted')));
-
-        this.subs.add(
-          buffer.onDidChangePath(newPath => {
-            if (newPath !== this.normalizedPath) {
-              const oldPath = this.normalizedPath;
-              this.normalizedPath = newPath;
-              announce('renamed', oldPath);
-            }
-          })
-        );
-      })
-    );
-
-    // Giant-ass brittle hack to hook files (and eventually directories) created from the TreeView.
-    const treeViewPackage = await atom.packages.getLoadedPackage('tree-view');
-    if (!treeViewPackage) return;
-    await treeViewPackage.activationPromise;
-    const treeViewModule = treeViewPackage.mainModule;
-    if (!treeViewModule) return;
-    const treeView = treeViewModule.getTreeViewInstance();
-
-    const isOpenInEditor = async eventPath => {
-      const openPaths = await Promise.all(
-        atom.workspace
-          .getTextEditors()
-          .map(editor => getRealPath(editor.getPath()))
-      );
-      return openPaths.includes(eventPath);
-    };
-
-    this.subs.add(
-      treeView.onFileCreated(async event => {
-        const realPath = await getRealPath(event.path);
-        if (!realPath) return;
-
-        this.onEvents([{ action: 'added', path: realPath }]);
-      })
-    );
-
-    this.subs.add(
-      treeView.onEntryDeleted(async event => {
-        const realPath = await getRealPath(event.path);
-        if (!realPath || (await isOpenInEditor(realPath))) return;
-
-        this.onEvents([{ action: 'deleted', path: realPath }]);
-      })
-    );
-
-    this.subs.add(
-      treeView.onEntryMoved(async event => {
-        const [realNewPath, realOldPath] = await Promise.all([
-          getRealPath(event.newPath),
-          getRealPath(event.initialPath)
-        ]);
-        if (
-          !realNewPath ||
-          !realOldPath ||
-          (await isOpenInEditor(realNewPath)) ||
-          (await isOpenInEditor(realOldPath))
-        )
-          return;
-
-        this.onEvents([
-          { action: 'renamed', path: realNewPath, oldPath: realOldPath }
-        ]);
-      })
-    );
   }
 }
 
@@ -596,52 +479,9 @@ class PathWatcherManager {
   // Private: Access the currently active manager instance, creating one if necessary.
   static active() {
     if (!this.activeManager) {
-      this.activeManager = new PathWatcherManager(
-        atom.config.get('core.fileSystemWatcher')
-      );
-      this.sub = atom.config.onDidChange(
-        'core.fileSystemWatcher',
-        ({ newValue }) => {
-          this.transitionTo(newValue);
-        }
-      );
+      this.activeManager = new PathWatcherManager();
     }
     return this.activeManager;
-  }
-
-  // Private: Replace the active {PathWatcherManager} with a new one that creates [NativeWatchers]{NativeWatcher}
-  // based on the value of `setting`.
-  static async transitionTo(setting) {
-    const current = this.active();
-
-    if (this.transitionPromise) {
-      await this.transitionPromise;
-    }
-
-    if (current.setting === setting) {
-      return;
-    }
-    current.isShuttingDown = true;
-
-    let resolveTransitionPromise = () => {};
-    this.transitionPromise = new Promise(resolve => {
-      resolveTransitionPromise = resolve;
-    });
-
-    const replacement = new PathWatcherManager(setting);
-    this.activeManager = replacement;
-
-    await Promise.all(
-      Array.from(current.live, async ([root, native]) => {
-        const w = await replacement.createWatcher(root, {}, () => {});
-        native.reattachTo(w.native, root, w.native.options || {});
-      })
-    );
-
-    current.stopAllWatchers();
-
-    resolveTransitionPromise();
-    this.transitionPromise = null;
   }
 
   // Private: Initialize global {PathWatcher} state.
@@ -663,21 +503,9 @@ class PathWatcherManager {
       });
     };
 
-    if (setting === 'atom') {
-      initLocal(AtomNativeWatcher);
-    } else if (setting === 'experimental') {
-      //
-    } else if (setting === 'poll') {
-      //
-    } else {
-      initLocal(NSFWNativeWatcher);
-    }
+    initLocal(NSFWNativeWatcher);
 
     this.isShuttingDown = false;
-  }
-
-  useExperimentalWatcher() {
-    return this.setting === 'experimental' || this.setting === 'poll';
   }
 
   // Private: Create a {PathWatcher} tied to this global state. See {watchPath} for detailed arguments.
@@ -691,16 +519,6 @@ class PathWatcherManager {
       );
     }
 
-    if (this.useExperimentalWatcher()) {
-      if (this.setting === 'poll') {
-        options.poll = true;
-      }
-
-      const w = await watcher.watchPath(rootPath, options, eventCallback);
-      this.live.set(rootPath, w.native);
-      return w;
-    }
-
     const w = new PathWatcher(this.nativeRegistry, rootPath, options);
     w.onDidChange(eventCallback);
     await w.getStartPromise();
@@ -709,28 +527,11 @@ class PathWatcherManager {
 
   // Private: Directly access the {NativeWatcherRegistry}.
   getRegistry() {
-    if (this.useExperimentalWatcher()) {
-      return watcher.getRegistry();
-    }
-
     return this.nativeRegistry;
-  }
-
-  // Private: Sample watcher usage statistics. Only available for experimental watchers.
-  status() {
-    if (this.useExperimentalWatcher()) {
-      return watcher.status();
-    }
-
-    return {};
   }
 
   // Private: Return a {String} depicting the currently active native watchers.
   print() {
-    if (this.useExperimentalWatcher()) {
-      return watcher.printWatchers();
-    }
-
     return this.nativeRegistry.print();
   }
 
@@ -738,10 +539,6 @@ class PathWatcherManager {
   //
   // Returns a {Promise} that resolves when all native watcher resources are disposed.
   stopAllWatchers() {
-    if (this.useExperimentalWatcher()) {
-      return watcher.stopAllWatchers();
-    }
-
     return Promise.all(Array.from(this.live, ([, w]) => w.stop()));
   }
 }
@@ -807,16 +604,6 @@ watchPath.printWatchers = function() {
 // Private: Access the active {NativeWatcherRegistry}.
 watchPath.getRegistry = function() {
   return PathWatcherManager.active().getRegistry();
-};
-
-// Private: Sample usage statistics for the active watcher.
-watchPath.status = function() {
-  return PathWatcherManager.active().status();
-};
-
-// Private: Configure @atom/watcher ("experimental") directly.
-watchPath.configure = function(...args) {
-  return watcher.configure(...args);
 };
 
 module.exports = { watchPath, stopAllWatchers };
