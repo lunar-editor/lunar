@@ -6,6 +6,6 @@
     "url": "https://github.com/atom/atom.git"
   },
   "dependencies": {
-    "atom-package-manager": "git+https://github.com/lunar-editor/apm.git#ade8fbe"
+    "atom-package-manager": "git+https://github.com/lunar-editor/apm.git#9bf9963"
   }
 }
