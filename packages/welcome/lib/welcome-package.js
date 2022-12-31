@@ -1,7 +1,6 @@
 /** @babel */
 
 import { CompositeDisposable } from 'atom';
-import ReporterProxy from './reporter-proxy';
 
 let WelcomeView, GuideView, ConsentView;
 
@@ -10,10 +9,6 @@ const GUIDE_URI = 'atom://welcome/guide';
 const CONSENT_URI = 'atom://welcome/consent';
 
 export default class WelcomePackage {
-  constructor() {
-    this.reporterProxy = new ReporterProxy();
-  }
-
   async activate() {
     this.subscriptions = new CompositeDisposable();
 
@@ -53,7 +48,6 @@ export default class WelcomePackage {
 
     if (atom.config.get('welcome.showOnStartup')) {
       await this.showWelcome();
-      this.reporterProxy.sendEvent('show-on-initial-load');
     }
   }
 
@@ -64,26 +58,22 @@ export default class WelcomePackage {
     ]);
   }
 
-  consumeReporter(reporter) {
-    return this.reporterProxy.setReporter(reporter);
-  }
-
   deactivate() {
     this.subscriptions.dispose();
   }
 
   createWelcomeView(state) {
     if (WelcomeView == null) WelcomeView = require('./welcome-view');
-    return new WelcomeView({ reporterProxy: this.reporterProxy, ...state });
+    return new WelcomeView(state);
   }
 
   createGuideView(state) {
     if (GuideView == null) GuideView = require('./guide-view');
-    return new GuideView({ reporterProxy: this.reporterProxy, ...state });
+    return new GuideView(state);
   }
 
   createConsentView(state) {
     if (ConsentView == null) ConsentView = require('./consent-view');
-    return new ConsentView({ reporterProxy: this.reporterProxy, ...state });
+    return new ConsentView(state);
   }
 }
