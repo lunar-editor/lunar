@@ -159,7 +159,6 @@ Using this criteria, all 91 packages have been evaluated and categorized to dete
 | **[language-yaml]** | 8 | 2 | 0 | 3/9/18 |
 | **[line-ending-selector]** | 10 | 0 | 0 | 5/18/18 |
 | **[link]** | 0 | 1 | 0 | 11/14/17 |
-| **[metrics]** | 1 | 2 | 0 | 7/5/18 |
 | **[notifications]** | 29 | 8 | 0 | 3/22/18 |
 | **[one-dark-syntax]** | 4 | 0 | 0 | 5/27/18 |
 | **[one-dark-ui]** | 13 | 1 | 0 | 5/1/18 |
@@ -312,7 +311,6 @@ One alternative approach would be to break this core Atom functionality out of p
 [line-ending-selector]: https://github.com/atom/line-ending-selector
 [link]: https://github.com/atom/link
 [markdown-preview]: https://github.com/atom/markdown-preview
-[metrics]: https://github.com/atom/metrics
 [notifications]: https://github.com/atom/notifications
 [one-dark-syntax]: https://github.com/atom/one-dark-syntax
 [one-dark-ui]: https://github.com/atom/one-dark-ui
