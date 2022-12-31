@@ -79,6 +79,7 @@ beforeEach ->
   spyOn(Date, 'now').andCallFake(-> window.now)
   spyOn(window, "setTimeout").andCallFake window.fakeSetTimeout
   spyOn(window, "clearTimeout").andCallFake window.fakeClearTimeout
+  spyOn(_, "debounce").andCallFake mockDebounce
 
   spy = spyOn(atom.packages, 'resolvePackagePath').andCallFake (packageName) ->
     if specPackageName and packageName is specPackageName
@@ -331,6 +332,43 @@ window.advanceClock = (delta=1) ->
       true
 
   callback() for callback in callbacks
+
+# This fixes issue with underscore debounce function and mocked timers
+# issue: https://github.com/jashkenas/underscore/issues/2918
+mockDebounce = (func, wait, immediate) ->
+  timeout = undefined
+  previous = undefined
+  args = undefined
+  result = undefined
+  context = undefined
+
+  later = ->
+    passed = Date.now() - previous
+    if wait > passed
+      timeout = setTimeout(later, wait - passed)
+    else
+      timeout = null
+      if !immediate
+        result = func.apply(context, args)
+      if !timeout
+        args = context = null
+
+  debounced = _.restArguments((_args) ->
+    context = this
+    args = _args
+    previous = Date.now()
+    if !timeout
+      timeout = setTimeout(later, wait)
+      if immediate
+        result = func.apply(context, args)
+    result
+  )
+
+  debounced.cancel = ->
+    clearTimeout timeout
+    timeout = args = context = null
+
+  debounced
 
 exports.mockLocalStorage = ->
   items = {}
