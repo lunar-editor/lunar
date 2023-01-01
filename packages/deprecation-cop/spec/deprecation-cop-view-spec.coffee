@@ -1,15 +1,11 @@
 Grim = require 'grim'
 path = require 'path'
-_ = require 'underscore-plus'
 etch = require 'etch'
 
 describe "DeprecationCopView", ->
   [deprecationCopView, workspaceElement] = []
 
   beforeEach ->
-    spyOn(_, 'debounce').andCallFake (func) ->
-      -> func.apply(this, arguments)
-
     workspaceElement = atom.views.getView(atom.workspace)
     jasmine.attachToDOM(workspaceElement)
 
