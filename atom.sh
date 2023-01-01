@@ -178,7 +178,7 @@ elif [ $OS == 'Linux' ]; then
   [ -x "$ATOM_PATH" ] || ATOM_PATH="$TMPDIR/atom-build/Atom/atom"
 
   if [ $EXPECT_OUTPUT ]; then
-    "$ATOM_PATH" --executed-from="$(pwd)" --pid=$$ "$@"
+    "$ATOM_PATH" --executed-from="$(pwd)" --pid=$$ "$@" --no-sandbox
     ATOM_EXIT=$?
     if [ ${ATOM_EXIT} -eq 0 ] && [ -n "${EXIT_CODE_OVERRIDE}" ]; then
       exit "${EXIT_CODE_OVERRIDE}"
@@ -187,7 +187,7 @@ elif [ $OS == 'Linux' ]; then
     fi
   else
     (
-    nohup "$ATOM_PATH" --executed-from="$(pwd)" --pid=$$ "$@" > "$ATOM_HOME/nohup.out" 2>&1
+    nohup "$ATOM_PATH" --executed-from="$(pwd)" --pid=$$ "$@" --no-sandbox > "$ATOM_HOME/nohup.out" 2>&1
     if [ $? -ne 0 ]; then
       cat "$ATOM_HOME/nohup.out"
       exit $?
