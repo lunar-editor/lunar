@@ -48,11 +48,16 @@ describe "DeprecationCopStatusBarView", ->
       atom.styles.addStyleSheet("""
       atom-text-editor::shadow { color: red; }
       """, sourcePath: 'file-1')
+      advanceClock(1000)
+
       expect(statusBarView.textContent).toBe '1 deprecation'
       expect(statusBarView).toBeVisible()
+
       atom.styles.addStyleSheet("""
       atom-text-editor::shadow { color: blue; }
       """, sourcePath: 'file-2')
+      advanceClock(1000)
+
       expect(statusBarView.textContent).toBe '2 deprecations'
       expect(statusBarView).toBeVisible()
 
