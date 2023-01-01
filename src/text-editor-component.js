@@ -2,6 +2,7 @@
 
 const etch = require('etch');
 const { Point, Range } = require('text-buffer');
+const { debounce } = require('underscore-plus');
 const LineTopIndex = require('line-top-index');
 const TextEditor = require('./text-editor');
 const { isPairedCharacter } = require('./text-utils');
@@ -5099,25 +5100,6 @@ function constrainRangeToRows(range, startRow, endRow) {
     }
   }
   return range;
-}
-
-function debounce(fn, wait) {
-  let timestamp, timeout;
-
-  function later() {
-    const last = Date.now() - timestamp;
-    if (last < wait && last >= 0) {
-      timeout = setTimeout(later, wait - last);
-    } else {
-      timeout = null;
-      fn();
-    }
-  }
-
-  return function() {
-    timestamp = Date.now();
-    if (!timeout) timeout = setTimeout(later, wait);
-  };
 }
 
 class NodePool {
