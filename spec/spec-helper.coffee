@@ -349,16 +349,16 @@ mockDebounce = (func, wait, immediate) ->
       timeout = setTimeout(later, wait - passed)
     else
       timeout = null
-      if !immediate
+      unless immediate
         result = func.apply(context, args)
-      if !timeout
+      unless timeout
         args = context = null
 
   debounced = _.restArguments((_args) ->
     context = this
     args = _args
     previous = Date.now()
-    if !timeout
+    unless timeout
       timeout = setTimeout(later, wait)
       if immediate
         result = func.apply(context, args)
