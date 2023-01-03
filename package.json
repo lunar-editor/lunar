@@ -141,7 +141,7 @@
     "season": "^6.0.2",
     "semver": "7.3.2",
     "service-hub": "^0.7.4",
-    "settings-view": "git+https://github.com/lunar-editor/settings-view.git#7a80f7d",
+    "settings-view": "git+https://github.com/lunar-editor/settings-view.git#4bd693f",
     "sinon": "9.2.1",
     "snippets": "git+https://github.com/atom/snippets.git#e8e6b89",
     "solarized-dark-syntax": "file:packages/solarized-dark-syntax",
