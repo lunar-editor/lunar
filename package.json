@@ -96,7 +96,7 @@
     "language-php": "git+https://github.com/atom/language-php.git#36a073b",
     "language-property-list": "git+https://github.com/atom/language-property-list.git#d2abd7d",
     "language-python": "git+https://github.com/lunar-editor/language-python.git#70e6587",
-    "language-ruby": "git+https://github.com/lunar-editor/language-ruby.git#cc78611",
+    "language-ruby": "git+https://github.com/lunar-editor/language-ruby.git#2297972",
     "language-ruby-on-rails": "git+https://github.com/atom/language-ruby-on-rails.git#c51d37c",
     "language-rust": "git+https://github.com/lunar-editor/language-rust.git#a650ffb",
     "language-sass": "git+https://github.com/atom/language-sass.git#32ee25f",
