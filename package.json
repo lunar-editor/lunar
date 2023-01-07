@@ -259,6 +259,10 @@
   "private": true,
   "scripts": {
     "preinstall": "node -e 'process.exit(0)'",
+    "bootstrap": "node script/bootstrap",
+    "build": "node script/build",
+    "clean": "node script/clean",
+    "lint": "node script/lint",
     "test": "node script/test"
   },
   "standard-engine": "./script/node_modules/standard",
