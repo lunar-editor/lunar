@@ -258,7 +258,6 @@
   },
   "private": true,
   "scripts": {
-    "preinstall": "node -e 'process.exit(0)'",
     "bootstrap": "node script/bootstrap",
     "build": "node script/build",
     "clean": "node script/clean",
