@@ -163,7 +163,7 @@
     "welcome": "file:packages/welcome",
     "whitespace": "git+https://github.com/atom/whitespace.git#53d5ba9",
     "winreg": "^1.2.1",
-    "wrap-guide": "git+https://github.com/atom/wrap-guide.git#6a4f577",
+    "wrap-guide": "file:packages/wrap-guide",
     "yargs": "16.1.0"
   },
   "packageDependencies": {
@@ -220,7 +220,7 @@
     "update-package-dependencies": "file:./packages/update-package-dependencies",
     "welcome": "file:./packages/welcome",
     "whitespace": "0.37.8",
-    "wrap-guide": "0.41.0",
+    "wrap-guide": "file:./packages/wrap-guide",
     "language-c": "0.60.20",
     "language-clojure": "0.22.8",
     "language-coffee-script": "0.50.0",
