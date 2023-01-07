@@ -15,17 +15,17 @@ See [RFC 003](https://github.com/atom/atom/blob/master/docs/rfcs/003-consolidate
 | **autocomplete-plus** | [`atom/autocomplete-plus`][autocomplete-plus] |  |
 | **autocomplete-snippets** | [`atom/autocomplete-snippets`][autocomplete-snippets] |  |
 | **autoflow** | [`./autoflow`](./autoflow) | [#17833](https://github.com/atom/atom/issues/17833) |
-| **autosave** | [`atom/autosave`][autosave] | [#17834](https://github.com/atom/atom/issues/17834) |
-| **background-tips** | [`atom/background-tips`][background-tips] | [#17835](https://github.com/atom/atom/issues/17835) |
+| **autosave** | [`./autosave`](./autosave) | [#17834](https://github.com/atom/atom/issues/17834) |
+| **background-tips** | [`./background-tips`](./background-tips) | [#17835](https://github.com/atom/atom/issues/17835) |
 | **base16-tomorrow-dark-theme** | [`./base16-tomorrow-dark-theme`](./base16-tomorrow-dark-theme) | [#17836](https://github.com/atom/atom/issues/17836) |
 | **base16-tomorrow-light-theme** | [`./base16-tomorrow-light-theme`](./base16-tomorrow-light-theme) | [#17837](https://github.com/atom/atom/issues/17837) |
 | **bookmarks** | [`atom/bookmarks`][bookmarks] | [#18273](https://github.com/atom/atom/issues/18273) |
 | **bracket-matcher** | [`atom/bracket-matcher`][bracket-matcher] |  |
-| **command-palette** | [`atom/command-palette`][command-palette] |  |
+| **command-palette** | [`./command-palette`](./command-palette) |  |
 | **dalek** | [`./dalek`](./dalek) | [#17838](https://github.com/atom/atom/issues/17838) |
 | **deprecation-cop** | [`./deprecation-cop`](./deprecation-cop) | [#17839](https://github.com/atom/atom/issues/17839) |
 | **dev-live-reload** | [`./dev-live-reload`](dev-live-reload) | [#17840](https://github.com/atom/atom/issues/17840) |
-| **encoding-selector** | [`atom/encoding-selector`][encoding-selector] | [#17841](https://github.com/atom/atom/issues/17841) |
+| **encoding-selector** | [`./encoding-selector`](./encoding-selector) | [#17841](https://github.com/atom/atom/issues/17841) |
 | **exception-reporting** | [`./exception-reporting`](./exception-reporting) | [#17842](https://github.com/atom/atom/issues/17842) |
 | **find-and-replace** | [`atom/find-and-replace`][find-and-replace] |  |
 | **fuzzy-finder** | [`atom/fuzzy-finder`][fuzzy-finder] |  |
@@ -35,7 +35,7 @@ See [RFC 003](https://github.com/atom/atom/blob/master/docs/rfcs/003-consolidate
 | **grammar-selector** | [`./grammar-selector`](./grammar-selector) | [#17845](https://github.com/atom/atom/issues/17845) |
 | **image-view** | [`atom/image-view`][image-view] | [#18274](https://github.com/atom/atom/issues/18274) |
 | **incompatible-packages** | [`./incompatible-packages`](./incompatible-packages) | [#17846](https://github.com/atom/atom/issues/17846) |
-| **keybinding-resolver** | [`atom/keybinding-resolver`][keybinding-resolver] | [#18275](https://github.com/atom/atom/issues/18275) |
+| **keybinding-resolver** | [`./keybinding-resolver`](./keybinding-resolver) | [#18275](https://github.com/atom/atom/issues/18275) |
 | **language-c** | [`atom/language-c`][language-c] |  |
 | **language-clojure** | [`atom/language-clojure`][language-clojure] |  |
 | **language-coffee-script** | [`atom/language-coffee-script`][language-coffee-script] |  |
@@ -85,16 +85,16 @@ See [RFC 003](https://github.com/atom/atom/blob/master/docs/rfcs/003-consolidate
 | **solarized-dark-syntax** | [`./solarized-dark-syntax`](./solarized-dark-syntax) | [#18280](https://github.com/atom/atom/issues/18280) |
 | **solarized-light-syntax** | [`./solarized-light-syntax`](./solarized-light-syntax) | [#18281](https://github.com/atom/atom/issues/18281) |
 | **spell-check** | [`atom/spell-check`][spell-check] |  |
-| **status-bar** | [`atom/status-bar`][status-bar] | [#18282](https://github.com/atom/atom/issues/18282) |
+| **status-bar** | [`./status-bar`](./status-bar) | [#18282](https://github.com/atom/atom/issues/18282) |
 | **styleguide** | [`atom/styleguide`][styleguide] | [#18283](https://github.com/atom/atom/issues/18283) |
 | **symbols-view** | [`atom/symbols-view`][symbols-view] |  |
-| **tabs** | [`atom/tabs`][tabs] |  |
-| **timecop** | [`atom/timecop`][timecop] | [#18272](https://github.com/atom/atom/issues/18272) |
+| **tabs** | [`./tabs`](./tabs) |  |
+| **timecop** | [`./timecop`](./timecop) | [#18272](https://github.com/atom/atom/issues/18272) |
 | **tree-view** | [`atom/tree-view`][tree-view] |  |
 | **update-package-dependencies** | [`./update-package-dependencies`](./update-package-dependencies) | [#18284](https://github.com/atom/atom/issues/18284) |
 | **welcome** | [`./welcome`](./welcome) | [#18285](https://github.com/atom/atom/issues/18285) |
-| **whitespace** | [`atom/whitespace`][whitespace] |  |
-| **wrap-guide** | [`atom/wrap-guide`][wrap-guide] | [#18286](https://github.com/atom/atom/issues/18286) |
+| **whitespace** | [`./whitespace`](./whitespace) |  |
+| **wrap-guide** | [`./wrap-guide`](./wrap-guide) | [#18286](https://github.com/atom/atom/issues/18286) |
 
 [archive-view]: https://github.com/atom/archive-view
 [autocomplete-atom-api]: https://github.com/atom/autocomplete-atom-api
