@@ -1,5 +1,4 @@
 const fs = require('fs-plus')
-const {it, fit, ffit, beforeEach} = require('./async-spec-helpers') // eslint-disable-line
 
 describe('Autosave', () => {
   let workspaceElement, initialActiveItem, otherItem1, otherItem2

@@ -1,7 +1,5 @@
 const {getWrapGuides, getLeftPosition} = require('./helpers')
 
-const {it, fit, ffit, afterEach, beforeEach} = require('./async-spec-helpers') // eslint-disable-line no-unused-vars
-
 describe('Wrap Guide', () => {
   let editor, editorElement, wrapGuide = []
 
