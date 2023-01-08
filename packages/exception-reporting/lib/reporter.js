@@ -120,6 +120,8 @@ export default class Reporter {
   }
 
   shouldReport(_error) {
+    if (this.alwaysReport) return true; // Used in specs
+
     // Since the `core.telemetryConsent` variable has been removed,
     // there is no way to check if should report to the remote.
     // Always return false to report to remote and allow reporting locally.
