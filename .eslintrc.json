@@ -29,7 +29,13 @@
   },
   "overrides": [
     {
-      "files": ["spec/**", "**-spec.js", "**.test.js"],
+      "files": [
+        "spec/**",
+        "packages/*/spec/**",
+        "packages/*/test/**",
+        "**-spec.js",
+        "**.test.js"
+      ],
       "env": {
         "jasmine": true
       },
