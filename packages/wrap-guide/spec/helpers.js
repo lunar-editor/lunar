@@ -1,20 +1,18 @@
-const helpers = {
-  getWrapGuides () {
-    const wrapGuides = []
-    for (const editor of atom.workspace.getTextEditors()) {
-      const guide = editor.getElement().querySelector('.wrap-guide')
-      if (guide) wrapGuides.push(guide)
-    }
-    return wrapGuides
-  },
+/** @babel */
 
-  getLeftPosition (element) {
-    return parseInt(element.style.left)
-  },
-
-  getLeftPositions (elements) {
-    return Array.prototype.map.call(elements, element => helpers.getLeftPosition(element))
+export function getWrapGuides () {
+  const wrapGuides = []
+  for (const editor of atom.workspace.getTextEditors()) {
+    const guide = editor.getElement().querySelector('.wrap-guide')
+    if (guide) wrapGuides.push(guide)
   }
+  return wrapGuides
 }
 
-module.exports = helpers
+export function getLeftPosition (element) {
+  return parseInt(element.style.left)
+}
+
+export function getLeftPositions (elements) {
+  return Array.prototype.map.call(elements, element => getLeftPosition(element))
+}
