@@ -156,7 +156,7 @@
     "text-buffer": "^13.18.5",
     "timecop": "file:packages/timecop",
     "tree-sitter": "0.20.0",
-    "tree-view": "git+https://github.com/lunar-editor/tree-view.git#bc42868",
+    "tree-view": "git+https://github.com/lunar-editor/tree-view.git#aa9edd7",
     "typescript-simple": "8.0.6",
     "update-package-dependencies": "file:./packages/update-package-dependencies",
     "vscode-ripgrep": "^1.13.2",
