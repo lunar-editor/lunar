@@ -182,6 +182,8 @@ class NotificationElement
       promises.push UserUtilities.checkAtomUpToDate()
       promises.push UserUtilities.checkPackageUpToDate(packageName) if packageName?
 
+      promises = promises.map((prom) -> prom.catch(() -> null))
+
       Promise.all(promises).then (allData) =>
         [issues, atomCheck, packageCheck] = allData
 
