@@ -1,0 +1,33 @@
+{
+  "name": "styleguide",
+  "main": "./lib/styleguide",
+  "version": "0.49.12",
+  "description": "A visual styleguide of the Atom's UI components.",
+  "repository": "https://github.com/atom/styleguide",
+  "license": "MIT",
+  "dependencies": {
+    "atom-select-list": "^0.7.0",
+    "dedent": "^0.7.0",
+    "etch": "0.9.0"
+  },
+  "deserializers": {
+    "StyleguideView": "createStyleguideView"
+  },
+  "engines": {
+    "atom": "*"
+  },
+  "devDependencies": {
+    "standard": "^10.0.3"
+  },
+  "standard": {
+    "env": {
+      "atomtest": true,
+      "browser": true,
+      "jasmine": true,
+      "node": true
+    },
+    "globals": [
+      "atom"
+    ]
+  }
+}
