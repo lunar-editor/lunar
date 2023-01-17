@@ -74,7 +74,7 @@ See [RFC 003](https://github.com/atom/atom/blob/master/docs/rfcs/003-consolidate
 | **line-ending-selector** | [`./line-ending-selector`](./line-ending-selector) | [#17847](https://github.com/atom/atom/issues/17847) |
 | **link** | [`./link`](./link) | [#17848](https://github.com/atom/atom/issues/17848) |
 | **markdown-preview** | [`atom/markdown-preview`][markdown-preview] |  |
-| **notifications** | [`atom/notifications`][notifications] | [#18277](https://github.com/atom/atom/issues/18277) |
+| **notifications** | [`./notifications`](./notifications) | [#18277](https://github.com/atom/atom/issues/18277) |
 | **one-dark-syntax** | [`./one-dark-syntax`](./one-dark-syntax) | [#17853](https://github.com/atom/atom/issues/17853) |
 | **one-dark-ui** | [`./one-dark-ui`](./one-dark-ui) | [#17854](https://github.com/atom/atom/issues/17854) |
 | **one-light-syntax** | [`./one-light-syntax`](./one-light-syntax) | [#17855](https://github.com/atom/atom/issues/17855) |
@@ -141,7 +141,6 @@ See [RFC 003](https://github.com/atom/atom/blob/master/docs/rfcs/003-consolidate
 [language-xml]: https://github.com/atom/language-xml
 [language-yaml]: https://github.com/atom/language-yaml
 [markdown-preview]: https://github.com/atom/markdown-preview
-[notifications]: https://github.com/atom/notifications
 [settings-view]: https://github.com/lunar-editor/settings-view
 [snippets]: https://github.com/atom/snippets
 [spell-check]: https://github.com/atom/spell-check
