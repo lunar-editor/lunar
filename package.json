@@ -85,7 +85,7 @@
     "language-go": "git+https://github.com/atom/language-go.git#d591541",
     "language-html": "git+https://github.com/lunar-editor/language-html.git#6b46bfb",
     "language-hyperlink": "git+https://github.com/atom/language-hyperlink.git#96bda00",
-    "language-java": "git+https://github.com/lunar-editor/language-java.git#8d7bc90",
+    "language-java": "git+https://github.com/lunar-editor/language-java.git#7682018",
     "language-javascript": "git+https://github.com/lunar-editor/language-javascript.git#b187b27",
     "language-json": "git+https://github.com/lunar-editor/language-json.git#56ce7f9",
     "language-less": "git+https://github.com/atom/language-less.git#4a1426a",
