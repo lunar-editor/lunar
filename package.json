@@ -23,7 +23,7 @@
     "atom-select-list": "^0.8.1",
     "autocomplete-atom-api": "git+https://github.com/atom/autocomplete-atom-api.git#f772a3f",
     "autocomplete-css": "git+https://github.com/atom/autocomplete-css.git#5307928",
-    "autocomplete-html": "git+https://github.com/atom/autocomplete-html.git#cee2467",
+    "autocomplete-html": "git+https://github.com/lunar-editor/autocomplete-html.git#990be58",
     "autocomplete-plus": "git+https://github.com/atom/autocomplete-plus.git#3bdb3f2",
     "autocomplete-snippets": "git+https://github.com/atom/autocomplete-snippets.git#2da0e23",
     "autoflow": "file:packages/autoflow",

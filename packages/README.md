@@ -12,7 +12,7 @@ See [RFC 003](https://github.com/atom/atom/blob/master/docs/rfcs/003-consolidate
 | **archive-view** | [`./archive-view`](./archive-view) |  |
 | **autocomplete-atom-api** | [`atom/autocomplete-atom-api`][autocomplete-atom-api] |  |
 | **autocomplete-css** | [`atom/autocomplete-css`][autocomplete-css] |  |
-| **autocomplete-html** | [`atom/autocomplete-html`][autocomplete-html] |  |
+| **autocomplete-html** | [`lunar-editor/autocomplete-html`][autocomplete-html] |  |
 | **autocomplete-plus** | [`atom/autocomplete-plus`][autocomplete-plus] |  |
 | **autocomplete-snippets** | [`atom/autocomplete-snippets`][autocomplete-snippets] |  |
 | **autoflow** | [`./autoflow`](./autoflow) | [#17833](https://github.com/atom/atom/issues/17833) |
@@ -99,7 +99,7 @@ See [RFC 003](https://github.com/atom/atom/blob/master/docs/rfcs/003-consolidate
 
 [autocomplete-atom-api]: https://github.com/atom/autocomplete-atom-api
 [autocomplete-css]: https://github.com/atom/autocomplete-css
-[autocomplete-html]: https://github.com/atom/autocomplete-html
+[autocomplete-html]: https://github.com/lunar-editor/autocomplete-html
 [autocomplete-plus]: https://github.com/atom/autocomplete-plus
 [autocomplete-snippets]: https://github.com/atom/autocomplete-snippets
 [bracket-matcher]: https://github.com/atom/bracket-matcher
