@@ -88,7 +88,7 @@ See [RFC 003](https://github.com/atom/atom/blob/master/docs/rfcs/003-consolidate
 | **spell-check** | [`atom/spell-check`][spell-check] |  |
 | **status-bar** | [`./status-bar`](./status-bar) | [#18282](https://github.com/atom/atom/issues/18282) |
 | **styleguide** | [`./styleguide`](./styleguide) | [#18283](https://github.com/atom/atom/issues/18283) |
-| **symbols-view** | [`atom/symbols-view`][symbols-view] |  |
+| **symbols-view** | [`lunar-editor/symbols-view`][symbols-view] |  |
 | **tabs** | [`./tabs`](./tabs) |  |
 | **timecop** | [`./timecop`](./timecop) | [#18272](https://github.com/atom/atom/issues/18272) |
 | **tree-view** | [`lunar-editor/tree-view`][tree-view] |  |
@@ -144,5 +144,5 @@ See [RFC 003](https://github.com/atom/atom/blob/master/docs/rfcs/003-consolidate
 [settings-view]: https://github.com/lunar-editor/settings-view
 [snippets]: https://github.com/atom/snippets
 [spell-check]: https://github.com/atom/spell-check
-[symbols-view]: https://github.com/atom/symbols-view
+[symbols-view]: https://github.com/lunar-editor/symbols-view
 [tree-view]: https://github.com/lunar-editor/tree-view

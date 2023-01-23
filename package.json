@@ -150,7 +150,7 @@
     "status-bar": "file:packages/status-bar",
     "styleguide": "file:packages/styleguide",
     "superstring": "^2.4.4",
-    "symbols-view": "git+https://github.com/atom/symbols-view.git#36c4dd4",
+    "symbols-view": "git+https://github.com/lunar-editor/symbols-view.git#b67a606",
     "tabs": "file:packages/tabs",
     "temp": "0.9.4",
     "text-buffer": "^13.18.5",
