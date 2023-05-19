@@ -21,7 +21,7 @@ See [RFC 003](https://github.com/atom/atom/blob/master/docs/rfcs/003-consolidate
 | **base16-tomorrow-dark-theme** | [`./base16-tomorrow-dark-theme`](./base16-tomorrow-dark-theme) | [#17836](https://github.com/atom/atom/issues/17836) |
 | **base16-tomorrow-light-theme** | [`./base16-tomorrow-light-theme`](./base16-tomorrow-light-theme) | [#17837](https://github.com/atom/atom/issues/17837) |
 | **bookmarks** | [`./bookmarks`](./bookmarks) | [#18273](https://github.com/atom/atom/issues/18273) |
-| **bracket-matcher** | [`atom/bracket-matcher`][bracket-matcher] |  |
+| **bracket-matcher** | [`./bracket-matcher`](./bracket-matcher) |  |
 | **command-palette** | [`./command-palette`](./command-palette) |  |
 | **dalek** | [`./dalek`](./dalek) | [#17838](https://github.com/atom/atom/issues/17838) |
 | **deprecation-cop** | [`./deprecation-cop`](./deprecation-cop) | [#17839](https://github.com/atom/atom/issues/17839) |
@@ -102,7 +102,6 @@ See [RFC 003](https://github.com/atom/atom/blob/master/docs/rfcs/003-consolidate
 [autocomplete-html]: https://github.com/lunar-editor/autocomplete-html
 [autocomplete-plus]: https://github.com/atom/autocomplete-plus
 [autocomplete-snippets]: https://github.com/atom/autocomplete-snippets
-[bracket-matcher]: https://github.com/atom/bracket-matcher
 [find-and-replace]: https://github.com/atom/find-and-replace
 [fuzzy-finder]: https://github.com/atom/fuzzy-finder
 [github]: https://github.com/lunar-editor/github
