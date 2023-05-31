@@ -80,7 +80,7 @@
     "language-coffee-script": "git+https://github.com/atom/language-coffee-script.git#b76b47f",
     "language-csharp": "git+https://github.com/atom/language-csharp.git#c2fea34",
     "language-css": "git+https://github.com/atom/language-css.git#9c8840b",
-    "language-gfm": "git+https://github.com/atom/language-gfm.git#ce39df9",
+    "language-gfm": "git+https://github.com/lunar-editor/language-gfm.git#245d14d",
     "language-git": "git+https://github.com/atom/language-git.git#738a900",
     "language-go": "git+https://github.com/atom/language-go.git#d591541",
     "language-html": "git+https://github.com/lunar-editor/language-html.git#6b46bfb",

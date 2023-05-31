@@ -42,7 +42,7 @@ See [RFC 003](https://github.com/atom/atom/blob/master/docs/rfcs/003-consolidate
 | **language-coffee-script** | [`atom/language-coffee-script`][language-coffee-script] |  |
 | **language-csharp** | [`atom/language-csharp`][language-csharp] |  |
 | **language-css** | [`atom/language-css`][language-css] |  |
-| **language-gfm** | [`atom/language-gfm`][language-gfm] |  |
+| **language-gfm** | [`lunar-editor/language-gfm`][language-gfm] |  |
 | **language-git** | [`atom/language-git`][language-git] |  |
 | **language-go** | [`atom/language-go`][language-go] |  |
 | **language-html** | [`lunar-editor/language-html`][language-html] |  |
@@ -110,7 +110,7 @@ See [RFC 003](https://github.com/atom/atom/blob/master/docs/rfcs/003-consolidate
 [language-coffee-script]: https://github.com/atom/language-coffee-script
 [language-csharp]: https://github.com/atom/language-csharp
 [language-css]: https://github.com/atom/language-css
-[language-gfm]: https://github.com/atom/language-gfm
+[language-gfm]: https://github.com/lunar-editor/language-gfm
 [language-git]: https://github.com/atom/language-git
 [language-go]: https://github.com/atom/language-go
 [language-html]: https://github.com/lunar-editor/language-html
